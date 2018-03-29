@@ -1,0 +1,7 @@
+div#app_header.header-tab
+  div.Swipe-tab.Swipe-tab_2.f-cb
+    a(:class="tab_1_class",href="javascript:",@click="tabSwitch(0)") 
+    a(:class="tab_2_class",href="javascript:",@click="tabSwitch(1)")  
+    i.header_tab-wrap(:class="{'header_tab-switch': switch_it}")
+  em.header-user
+  em.header-checkin

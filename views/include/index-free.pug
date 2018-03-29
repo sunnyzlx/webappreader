@@ -1,0 +1,12 @@
+section.channel-group
+  div.channel-group__header
+    h2.channel-group__title 限时免费
+  ul.book-table
+    li(v-for="(item,index) in female",v-if="index<6")
+      div.u-book
+        div.book-cover
+          img(:alt="item.title",:src="item.cover")
+          div.u-tagRT.-freefiction
+        div.info
+          h3.title {{item.title}}
+  a.channel-group__footer(href="/free")  更多限免佳作&gt;&gt;

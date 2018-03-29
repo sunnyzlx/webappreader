@@ -1,0 +1,26 @@
+doctype
+html
+  head
+    meta(charset="utf-8")
+    meta(name="viewport",content="width=device-width,initial-scale=1,user-scalable=no")
+    link(rel="stylesheet",type="text/css",href="/css/reset.css")
+    link(rel="stylesheet",type="text/css",href="/css/all.css")
+    title #{title}
+  body
+    div#app(style="height: 100%;overflow:hidden;")
+      include ../include/header
+      div.container-outter-wrap(:class="{'tab-switch': switch_it}")
+        div.container-wrap(style="width:50%;height:100%;float:left")
+          div.container-scroll
+            include ../include/index-top
+            include ../include/index-hot
+            include ../include/index-recommend
+            include ../include/index-female
+            include ../include/index-male
+            include ../include/index-free
+            include ../include/index-bottom
+        div(style="width:50%;height:100%;float:left")
+          include ../include/index-shelf
+  script(src="/script/vue.js")
+  script(src="/script/zepto.js")
+  script(src="/script/pages/index.js")

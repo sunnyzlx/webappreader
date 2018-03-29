@@ -1,0 +1,24 @@
+section.channel-h5
+  div.channel-h5__header
+    p.channel-h5__title 重磅推荐 
+     i 推
+    div.tab
+      a.tab__on(href="javascript:") 男
+      a(href="javascript:") 女
+  ul.list-h5
+    li(v-for="(item,index) in recommend",v-if="index==0")
+      div.book-h5
+        div.book-h5__cover
+          img(:alt="item.title",:src="item.cover")
+          p.book-h5__finish 完结
+        div.book-h5__info
+          p.book-h5__title {{item.title}}
+          p.book-h5__author {{item.authors}}
+          p.book-h5__summary {{item.summary}}
+          div.book-h5__wrap
+            div.book-h5__tag(v-for="tag in item.tags") {{ tag }}
+    li(v-for="(item,index) in recommend",v-if="index>0 && index<9")
+      div.book-h5.book-h5__no-img
+        span.book-h5_no-img__order 0{{index}}
+        div.book-h5_no-img__info
+          p.book-h5_no-img__title {{item.title}}

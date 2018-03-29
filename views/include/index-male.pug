@@ -1,0 +1,20 @@
+section.channel-h5
+  div.channel-h5__header
+    p.channel-h5__title 男生最爱 
+  div
+    div
+      ul.list-h5
+        li(v-for="(item,index) in male",v-if="index<2")
+          div.book-h5
+            div.book-h5__cover
+              img(:alt="item.title",:src="item.cover")
+              p.book-h5__finish 完结
+            div.book-h5__info
+              p.book-h5__title {{item.title}}
+              p.book-h5__author {{item.authors}}
+              p.book-h5__summary {{item.summary}}
+              div.book-h5__wrap
+                div.book-h5__tag(v-for="(tag,index) in item.tags") {{tag}}
+    div.channel-h5__footer_next
+      a(href="javascript:") 换一换
+      a(href="/male") 男生频道&gt;&gt;

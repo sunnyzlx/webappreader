@@ -1,0 +1,74 @@
+doctype
+html
+  head
+    meta(charset="utf-8")
+    meta(name="viewport",content="width=device-width,initial-scale=1,user-scalable=no")
+    link(rel="stylesheet",type="text/css",href="/css/reset.css")
+    link(rel="stylesheet",type="text/css",href="/css/book.css")
+    title #{title}
+  body
+    div#app(style="height: 100%;overflow:hidden;")
+      include ../include/common-header
+      div.container-scroll
+        div.book-page
+          section.main-card(style="border-bottom:none")
+            div.u-book.-detail
+              div.book-cover
+                img(:alt="item.title",:src="item.cover")
+              div.info
+                h3.title {{ item.title }}
+                p.author
+                  span.author {{ item.authors }}
+                div.u-grade
+                  span.read {{ item.score_count }} 个评价
+                p.price 价格：{{ item.price }}书币／千字
+                p.count  字数:{{ item.word_count }}字
+                  span.u-booktag.-serial  连载中
+          section.main-card
+            div.book-dash
+              div.wrap
+                ul.btn-group
+                  li.u-btn2(@:click="readBook()")
+                    span.book-dash-text
+            div.u-folder
+              div.folder-cnt {{ item.content }}
+              div.folder-tail
+                div 最新：{{ item.lastest }}
+          section.main-card
+            div.u-folder
+              div.folder-top
+                h3 类别标签
+              div.folder-cnt
+                ul.m-tag.-color
+                  li.u-tag(v-for="tag in item.tags") {{ tag }}
+          section.main-card
+            div.u-title
+              h1  作者的其他作品
+            div.cnt
+              ul.book-table
+                li(v-for="book in author_books")
+                  div.u-book.-vertical
+                    div.book-cover
+                      img(:title="book.title",:src="book.cover")  
+                    div.info
+                      h3.title {{ book.title }}
+          section.main-card
+            div.u-title
+              h1 喜欢本书的人也喜欢
+            div.cnt
+              ul.book-table
+                li(v-for="book in related")
+                  div.u-book.-vertical
+                    div.book-cover
+                      img(:title="book.title",:src="book.cover")  
+                    div.info
+                      h3.title {{ book.title }}
+          section.main-card.-folder
+            div.u-title
+              h1 图书信息
+            div.cnt
+              ul.text
+                li 版权：{{ item.rights }}
+  script(src="/script/vue.js")
+  script(src="/script/zepto.js")
+  script(src="/script/pages/book.js")
